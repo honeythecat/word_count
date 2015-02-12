@@ -1,3 +1,7 @@
-/*.results {
-  visibility: none;
-}*/
+.results {
+  display: none;
+}
+
+.form-line {
+  width: 50%;
+}

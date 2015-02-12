@@ -1,6 +1,6 @@
 var wordOrder = function(text) {
   text = text.toLowerCase();
-  var splitText = text.split(" ");
+  var splitText = text.split(" ").sort();
   var word = []
   var count =[]
   var prev;
@@ -19,6 +19,21 @@ var wordOrder = function(text) {
   count.forEach(function(count, i){
     counted.push([count, word[i]].join(" "));
   });
-  return counted.sort().reverse().join(", ");
-
+  return counted.sort().reverse().split(",").join(" ");
 };
+
+$(function(){
+  $("form#word_order").submit(function(event) {
+    var text = $("input#phrase").val();
+    var array = wordOrder(text);
+    array.forEach(function(word) {
+      alert(word);
+      $(".count").text(word);
+    });
+
+    $(".results").show();
+    event.preventDefault();
+  });
+
+
+});
