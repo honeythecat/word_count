@@ -19,7 +19,7 @@ var wordOrder = function(text) {
   count.forEach(function(count, i){
     counted.push([count, word[i]].join(" "));
   });
-  return counted.sort().reverse().split(",").join(" ");
+  return counted.sort().reverse();
 };
 
 $(function(){
@@ -27,8 +27,7 @@ $(function(){
     var text = $("input#phrase").val();
     var array = wordOrder(text);
     array.forEach(function(word) {
-      alert(word);
-      $(".count").text(word);
+      $(".count").append(word + "<br>");
     });
 
     $(".results").show();
