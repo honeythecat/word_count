@@ -15,6 +15,10 @@ var wordOrder = function(text) {
     prev = splitText[i];
   }
 
-  return [word, count]
+  var counted = [];
+  count.forEach(function(count, i){
+    counted.push([count, word[i]].join(" "));
+  });
+  return counted.sort().reverse().join(", ");
 
 };
